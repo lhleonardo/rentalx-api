@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { CategoriesRepository } from "../modules/cars/repositories/categories-repository";
+import { InMemoryCategoriesRepository } from "../modules/cars/repositories/implementations/in-memory-categories-repository";
 import {
     CreateCategoryService,
     ListCategoriesService,
@@ -8,7 +8,7 @@ import {
 
 const categoriesRoutes = Router();
 
-const categoriesRepository = new CategoriesRepository();
+const categoriesRepository = new InMemoryCategoriesRepository();
 
 categoriesRoutes.post("/categories", async (request, response) => {
     const { name, description } = request.body;
