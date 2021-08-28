@@ -1,9 +1,9 @@
 import { Router } from "express";
 
-import { categoriesRoutes } from "./categories.routes";
+import { carsRoutes } from "../modules/cars/infra/http/routes";
 
 const routes = Router();
 
-routes.use(categoriesRoutes);
+routes.use(carsRoutes);
 
 export { routes };

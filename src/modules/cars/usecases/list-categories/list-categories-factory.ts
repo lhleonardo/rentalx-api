@@ -3,7 +3,7 @@ import { ListCategoriesController } from "./list-categories-controller";
 import { ListCategoriesUseCase } from "./list-categories-usecase";
 
 export function makeListCategoriesController(): ListCategoriesController {
-    const repository = new InMemoryCategoriesRepository();
+    const repository = InMemoryCategoriesRepository.getInstance();
 
     const usecase = new ListCategoriesUseCase(repository);
     const controller = new ListCategoriesController(usecase);

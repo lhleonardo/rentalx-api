@@ -9,7 +9,17 @@ import {
 export class InMemoryCategoriesRepository implements CategoriesRepository {
     private categories: Category[];
 
-    constructor() {
+    private static INSTANCE: InMemoryCategoriesRepository;
+
+    public static getInstance(): InMemoryCategoriesRepository {
+        if (!this.INSTANCE) {
+            this.INSTANCE = new InMemoryCategoriesRepository();
+        }
+
+        return this.INSTANCE;
+    }
+
+    private constructor() {
         this.categories = [];
     }
 
