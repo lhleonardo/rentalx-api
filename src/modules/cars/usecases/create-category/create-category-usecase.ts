@@ -7,7 +7,7 @@ type Request = {
     description: string;
 };
 
-export class CreateCategoryService {
+export class CreateCategoryUseCase {
     private categoriesRepository: CategoriesRepository;
 
     constructor(categoriesRepository: CategoriesRepository) {

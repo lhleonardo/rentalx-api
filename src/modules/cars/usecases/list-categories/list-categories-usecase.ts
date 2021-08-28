@@ -1,7 +1,7 @@
 import { Category } from "../../models/category";
 import { CategoriesRepository } from "../../repositories/categories-repository";
 
-export class ListCategoriesService {
+export class ListCategoriesUseCase {
     private categoriesRepository: CategoriesRepository;
 
     constructor(categoriesRepository: CategoriesRepository) {
