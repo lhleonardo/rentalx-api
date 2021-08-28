@@ -17,7 +17,11 @@ export class CreateSpecificationUseCase {
     async execute(data: Request): Promise<Specification> {
         const { name, description } = data;
 
-        if (this.existsSpecification(name)) {
+        const specificationAlreadyExists = await this.repository.findByName(
+            name
+        );
+
+        if (specificationAlreadyExists) {
             throw new AppError("Specification already exists");
         }
 
@@ -27,9 +31,5 @@ export class CreateSpecificationUseCase {
         });
 
         return specification;
-    }
-
-    private async existsSpecification(name: string): Promise<boolean> {
-        return !!this.repository.findByName(name);
     }
 }

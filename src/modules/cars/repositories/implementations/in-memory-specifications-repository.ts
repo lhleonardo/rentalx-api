@@ -8,9 +8,19 @@ import {
 
 export class InMemorySpecificationsRepository
     implements SpecificationsRepository {
+    private static INSTANCE: InMemorySpecificationsRepository;
+
+    public static getInstance(): InMemorySpecificationsRepository {
+        if (!this.INSTANCE) {
+            this.INSTANCE = new InMemorySpecificationsRepository();
+        }
+
+        return this.INSTANCE;
+    }
+
     private specifications: Specification[];
 
-    constructor() {
+    private constructor() {
         this.specifications = [];
     }
 
