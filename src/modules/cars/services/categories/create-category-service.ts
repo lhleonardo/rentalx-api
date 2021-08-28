@@ -1,4 +1,4 @@
-import { AppError } from "../../errors/app-error";
+import { AppError } from "../../../../errors/app-error";
 import { Category } from "../../models/category";
 import { CategoriesRepository } from "../../repositories/categories-repository";
 
