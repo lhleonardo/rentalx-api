@@ -3,7 +3,7 @@ import { InMemoryCategoriesRepository } from "../../repositories/implementations
 import { ImportCategoryController } from "./import-category-controller";
 import { ImportCategoryUseCase } from "./import-category-usecase";
 
-export function createImportCategoryController(): BasicController {
+export function makeImportCategoryController(): BasicController {
     const repository = InMemoryCategoriesRepository.getInstance();
 
     const useCase = new ImportCategoryUseCase(repository);
