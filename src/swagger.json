@@ -6,7 +6,96 @@
         "version": "1.0.0",
         "contact": {
             "email": "lhleonardo05@gmail.com",
-            "github": "@lhleonardo"
+            "name": "Leonardo Braz",
+            "url": "https://github.com/lhleonardo"
+        }
+    },
+    "tags": [
+        {
+            "name": "Categorias",
+            "description": "Gerenciar todas as categorias de veículos"
+        },
+        {
+            "name": "specifications",
+            "description": "Gerenciar todos os tipos de especificações que um carro pode ter"
+        }
+    ],
+    "paths": {
+        "/categories": {
+            "post": {
+                "summary": "Cria uma nova categoria",
+                "description": "Cria um novo tipo de categoria de carros",
+                "tags": [
+                    "Categorias"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Nome da categoria",
+                                    "description": "Descrição da categoria"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Categoria criada"
+                    },
+                    "400": {
+                        "description": "Categoria já existe"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Listar categorias",
+                "description": "Listar todas as categorias de carros existentes",
+                "responses": {
+                    "200": {
+                        "description": "Sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "Identificador no formato UUID"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "createdAt": {
+                                                "type": "string",
+                                                "description": "Data no formato ISO"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
