@@ -33,9 +33,15 @@ export class ImportCategoryUseCase {
                 categories.push({ name, description });
             });
 
-            parser.on("end", () => resolve(categories));
+            parser.on("end", () => {
+                fs.promises.unlink(file.path);
+                resolve(categories);
+            });
 
-            parser.on("error", (err) => reject(err));
+            parser.on("error", (err) => {
+                fs.promises.unlink(file.path);
+                reject(err);
+            });
         });
     }
 
