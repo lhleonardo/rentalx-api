@@ -1,0 +1,12 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "RentalX Docs",
+        "description": "Documentação da API do RentalX, construído no bootcamp Ignite da Rocketseat.",
+        "version": "1.0.0",
+        "contact": {
+            "email": "lhleonardo05@gmail.com",
+            "github": "@lhleonardo"
+        }
+    }
+}
