@@ -6,7 +6,7 @@ export class CreateSpecificationsTable1638492468000
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "specifications",
+                name: "tb_specifications",
                 columns: [
                     new TableColumn({
                         name: "specification_id",
@@ -31,6 +31,6 @@ export class CreateSpecificationsTable1638492468000
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("specifications");
+        await queryRunner.dropTable("tb_specifications");
     }
 }
