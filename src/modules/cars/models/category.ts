@@ -5,11 +5,12 @@ import {
     PrimaryColumn,
     UpdateDateColumn,
 } from "typeorm";
+import { v4 as uuid } from "uuid";
 
 @Entity({ name: "tb_categories" })
 export class Category {
     @PrimaryColumn({ name: "category_id", type: "uuid" })
-    id: string;
+    id?: string;
 
     @Column()
     name: string;
@@ -21,4 +22,10 @@ export class Category {
 
     @UpdateDateColumn()
     updatedAt: Date;
+
+    constructor() {
+        if (!this.id) {
+            this.id = uuid();
+        }
+    }
 }
