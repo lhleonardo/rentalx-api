@@ -49,7 +49,7 @@ export class CreateUserUsecase implements BasicUsecase<Request, User> {
 
         const hashedPassword: string = await this.hasherProvider.hash(password);
 
-        const resultPromise = this.usersRepository.create({
+        const result = await this.usersRepository.create({
             email,
             name,
             avatar,
@@ -58,6 +58,8 @@ export class CreateUserUsecase implements BasicUsecase<Request, User> {
             password: hashedPassword,
         });
 
-        return resultPromise;
+        delete result.password;
+
+        return result;
     }
 }
