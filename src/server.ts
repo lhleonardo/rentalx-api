@@ -2,6 +2,8 @@ import "express-async-errors";
 import express from "express";
 import swagger from "swagger-ui-express";
 
+import "./database";
+
 import { exceptionHandler } from "./middlewares/exception-handler";
 import { routes } from "./routes";
 import swaggerConfig from "./swagger.json";
