@@ -1,11 +1,14 @@
 version: "3.0"
 
 services:
-    app:
-        build: .
-        container_name: "rentalx-app"
+    database:
+        container_name: rentx-database
+        image: postgres:14.1-alpine
         ports:
-            - "3000:3000"
+        - "5432:5432"
+        environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=docker
+        - POSTGRES_DB="rentx_database"
         volumes:
-            - .:/usr/app
-        
+        - ./.docker/database_data/:/var/lib/postgresql/data
