@@ -1,10 +1,10 @@
 import { v4 as uuid } from "uuid";
 
-import { Category } from "../../models/category";
+import { Category } from "../../../models/category";
 import {
     CategoriesRepository,
     CreateCategoryDTO,
-} from "../categories-repository";
+} from "../../categories-repository";
 
 export class InMemoryCategoriesRepository implements CategoriesRepository {
     private categories: Category[];
@@ -31,6 +31,7 @@ export class InMemoryCategoriesRepository implements CategoriesRepository {
             name,
             description,
             createdAt: new Date(),
+            updatedAt: undefined,
         };
 
         this.categories.push(newCategory);

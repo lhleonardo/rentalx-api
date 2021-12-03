@@ -1,4 +1,4 @@
-import { InMemoryCategoriesRepository } from "../../repositories/implementations/in-memory-categories-repository";
+import { InMemoryCategoriesRepository } from "../../repositories/implementations/in-memory/in-memory-categories-repository";
 import { ListCategoriesController } from "./list-categories-controller";
 import { ListCategoriesUseCase } from "./list-categories-usecase";
 
