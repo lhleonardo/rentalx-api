@@ -1,9 +1,12 @@
 import { Router } from "express";
 import multer from "multer";
 
-import { makeCreateCategoryController } from "../../../usecases/create-category/create-category-factory";
-import { makeImportCategoryController } from "../../../usecases/import-category/import-category-factory";
-import { makeListCategoriesController } from "../../../usecases/list-categories/list-categories-factory";
+import {
+    createCategoryValidation,
+    makeCreateCategoryController,
+} from "../../../usecases/create-category";
+import { makeImportCategoryController } from "../../../usecases/import-category";
+import { makeListCategoriesController } from "../../../usecases/list-categories";
 
 const categoriesRoutes = Router();
 
@@ -11,7 +14,7 @@ const uploadConfiguration = multer({
     dest: "./tmp",
 });
 
-categoriesRoutes.post("/categories", (req, res) =>
+categoriesRoutes.post("/categories", createCategoryValidation, (req, res) =>
     makeCreateCategoryController().handle(req, res)
 );
 

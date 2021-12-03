@@ -1,12 +1,17 @@
 import { Router } from "express";
 
-import { makeCreateSpecificationController } from "../../../usecases/create-specification/create-specification-factory";
-import { makeListSpecificationController } from "../../../usecases/list-specifications/list-specifications-factory";
+import {
+    createSpecificationValidation,
+    makeCreateSpecificationController,
+} from "../../../usecases/create-specification";
+import { makeListSpecificationController } from "../../../usecases/list-specifications";
 
 const specificationsRoutes = Router();
 
-specificationsRoutes.post("/specifications", (req, res) =>
-    makeCreateSpecificationController().handle(req, res)
+specificationsRoutes.post(
+    "/specifications",
+    createSpecificationValidation,
+    (req, res) => makeCreateSpecificationController().handle(req, res)
 );
 
 specificationsRoutes.get("/specifications", (req, res) =>

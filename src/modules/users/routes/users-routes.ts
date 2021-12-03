@@ -1,10 +1,13 @@
 import { Router } from "express";
 
-import { makeCreateUserController } from "../usecases/create-user/create-user-factory";
+import {
+    createUserValidation,
+    makeCreateUserController,
+} from "../usecases/create-user";
 
 const usersRoutes = Router();
 
-usersRoutes.post("/users", (req, res) =>
+usersRoutes.post("/users", createUserValidation, (req, res) =>
     makeCreateUserController().handle(req, res)
 );
 
