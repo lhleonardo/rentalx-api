@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity()
+@Entity("tb_specifications")
 export class Specification {
     @PrimaryColumn({ name: "specification_id" })
     id?: string;
