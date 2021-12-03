@@ -1,9 +1,9 @@
-import { InMemorySpecificationsRepository } from "../../repositories/implementations/in-memory-specifications-repository";
+import { TypeormSpecificationsRepository } from "../../repositories/implementations/typeorm/typeorm-specifications-repository";
 import { CreateSpecificationController } from "./create-specification-controller";
 import { CreateSpecificationUseCase } from "./create-specification-usecase";
 
 export function makeCreateSpecificationController(): CreateSpecificationController {
-    const repository = InMemorySpecificationsRepository.getInstance();
+    const repository = new TypeormSpecificationsRepository();
 
     const usecase = new CreateSpecificationUseCase(repository);
     const controller = new CreateSpecificationController(usecase);

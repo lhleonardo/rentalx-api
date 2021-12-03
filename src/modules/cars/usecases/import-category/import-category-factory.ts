@@ -1,10 +1,10 @@
 import { BasicController } from "../../../core/controllers/basic-controller";
-import { InMemoryCategoriesRepository } from "../../repositories/implementations/in-memory/in-memory-categories-repository";
+import { TypeormCategoriesRepository } from "../../repositories/implementations/typeorm/typeorm-categories-repository";
 import { ImportCategoryController } from "./import-category-controller";
 import { ImportCategoryUseCase } from "./import-category-usecase";
 
 export function makeImportCategoryController(): BasicController {
-    const repository = InMemoryCategoriesRepository.getInstance();
+    const repository = new TypeormCategoriesRepository();
 
     const useCase = new ImportCategoryUseCase(repository);
 
