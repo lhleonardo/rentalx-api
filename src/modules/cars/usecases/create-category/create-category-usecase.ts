@@ -1,4 +1,5 @@
 import { AppError } from "../../../../errors/app-error";
+import { BasicUsecase } from "../../../core/usecases/basic-service";
 import { Category } from "../../models/category";
 import { CategoriesRepository } from "../../repositories/categories-repository";
 
@@ -7,7 +8,7 @@ type Request = {
     description: string;
 };
 
-export class CreateCategoryUseCase {
+export class CreateCategoryUseCase implements BasicUsecase<Request, Category> {
     private categoriesRepository: CategoriesRepository;
 
     constructor(categoriesRepository: CategoriesRepository) {

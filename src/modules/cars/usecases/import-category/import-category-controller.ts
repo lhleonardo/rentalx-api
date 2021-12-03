@@ -16,7 +16,7 @@ export class ImportCategoryController implements BasicController {
     ): Promise<Response> {
         const { file } = request;
 
-        this.useCase.execute(file);
+        this.useCase.execute({ file });
 
         return response.status(200).send();
     }

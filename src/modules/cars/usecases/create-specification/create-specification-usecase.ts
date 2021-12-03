@@ -1,4 +1,5 @@
 import { AppError } from "../../../../errors/app-error";
+import { BasicUsecase } from "../../../core/usecases/basic-service";
 import { Specification } from "../../models/specification";
 import { SpecificationsRepository } from "../../repositories/specifications-repository";
 
@@ -7,7 +8,9 @@ type Request = {
     description: string;
 };
 
-export class CreateSpecificationUseCase {
+export class CreateSpecificationUseCase
+    implements BasicUsecase<Request, Specification>
+{
     private repository: SpecificationsRepository;
 
     constructor(specificationsRepository: SpecificationsRepository) {

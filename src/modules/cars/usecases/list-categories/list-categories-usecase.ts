@@ -1,7 +1,8 @@
+import { BasicUsecase } from "../../../core/usecases/basic-service";
 import { Category } from "../../models/category";
 import { CategoriesRepository } from "../../repositories/categories-repository";
 
-export class ListCategoriesUseCase {
+export class ListCategoriesUseCase implements BasicUsecase<void, Category[]> {
     private categoriesRepository: CategoriesRepository;
 
     constructor(categoriesRepository: CategoriesRepository) {
