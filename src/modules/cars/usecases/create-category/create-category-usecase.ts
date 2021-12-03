@@ -1,5 +1,5 @@
-import { AppError } from "../../../../errors/app-error";
 import { BasicUsecase } from "../../../core/usecases/basic-service";
+import { DuplicateCategoryError } from "../../errors/duplicate-category";
 import { Category } from "../../models/category";
 import { CategoriesRepository } from "../../repositories/categories-repository";
 
@@ -21,7 +21,7 @@ export class CreateCategoryUseCase implements BasicUsecase<Request, Category> {
         const categoryExists = await this.categoriesRepository.findByName(name);
 
         if (categoryExists) {
-            throw new AppError("Category already exists");
+            throw new DuplicateCategoryError(categoryExists.name);
         }
 
         const newCategory = await this.categoriesRepository.create({

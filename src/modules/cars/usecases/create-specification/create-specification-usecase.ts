@@ -1,5 +1,5 @@
-import { AppError } from "../../../../errors/app-error";
 import { BasicUsecase } from "../../../core/usecases/basic-service";
+import { DuplicateSpecificationError } from "../../errors/duplicate-specification";
 import { Specification } from "../../models/specification";
 import { SpecificationsRepository } from "../../repositories/specifications-repository";
 
@@ -25,7 +25,9 @@ export class CreateSpecificationUseCase
         );
 
         if (specificationAlreadyExists) {
-            throw new AppError("Specification already exists");
+            throw new DuplicateSpecificationError(
+                specificationAlreadyExists.name
+            );
         }
 
         const specification = await this.repository.create({
