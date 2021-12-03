@@ -10,7 +10,10 @@ export function exceptionHandler(
     next: NextFunction
 ): Response {
     if (error instanceof AppError) {
-        return response.status(error.statusCode).json({ error: error.message });
+        return response.status(error.statusCode).json({
+            errorType: error.name || "AppError",
+            message: error.message,
+        });
     }
 
     console.error(error);
