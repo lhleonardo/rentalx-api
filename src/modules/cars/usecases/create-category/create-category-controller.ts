@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { BasicController } from "../../../core/controllers/basic-controller";
+import { BasicController } from "../../../../core/controllers/basic-controller";
 import { CreateCategoryUseCase } from "./create-category-usecase";
 
 export class CreateCategoryController implements BasicController {

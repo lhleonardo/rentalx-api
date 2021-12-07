@@ -1,4 +1,4 @@
-import { BasicUsecase } from "../../../core/usecases/basic-service";
+import { BasicUsecase } from "../../../../core/usecases/basic-service";
 import { Category } from "../../models/category";
 import { CategoriesRepository } from "../../repositories/categories-repository";
 

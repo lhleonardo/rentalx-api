@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { BasicController } from "../../../core/controllers/basic-controller";
+import { BasicController } from "../../../../core/controllers/basic-controller";
 import { CreateSpecificationUseCase } from "./create-specification-usecase";
 
 export class CreateSpecificationController implements BasicController {

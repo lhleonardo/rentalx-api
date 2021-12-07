@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { BasicController } from "../../../core/controllers/basic-controller";
+import { BasicController } from "../../../../core/controllers/basic-controller";
 import { ListSpecificationsUseCase } from "./list-specifications-usecase";
 
 export class ListSpecificationsController implements BasicController {

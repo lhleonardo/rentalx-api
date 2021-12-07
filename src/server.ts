@@ -2,10 +2,10 @@ import express from "express";
 import "express-async-errors";
 import swagger from "swagger-ui-express";
 
-import "./database";
-import { exceptionHandler } from "./middlewares/exception-handler";
-import { validationHandler } from "./middlewares/validation-handler";
-import { routes } from "./routes";
+import "./shared/database";
+import { exceptionHandler } from "./shared/middlewares/exception-handler";
+import { validationHandler } from "./shared/middlewares/validation-handler";
+import { routes } from "./shared/routes";
 import swaggerConfig from "./swagger.json";
 
 const app = express();

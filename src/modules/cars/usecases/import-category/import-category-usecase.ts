@@ -1,7 +1,7 @@
 import csvParser from "csv-parse";
 import fs from "fs";
 
-import { BasicUsecase } from "../../../core/usecases/basic-service";
+import { BasicUsecase } from "../../../../core/usecases/basic-service";
 import { CategoriesRepository } from "../../repositories/categories-repository";
 
 type CategoryExtracted = {

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { BasicController } from "../../../core/controllers/basic-controller";
+import { BasicController } from "../../../../core/controllers/basic-controller";
 import { CreateUserUsecase } from "./create-user-usecase";
 
 export class CreateUserController implements BasicController {

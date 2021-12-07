@@ -1,4 +1,4 @@
-import { BasicUsecase } from "../../../core/usecases/basic-service";
+import { BasicUsecase } from "../../../../core/usecases/basic-service";
 import { DuplicateSpecificationError } from "../../errors/duplicate-specification";
 import { Specification } from "../../models/specification";
 import { SpecificationsRepository } from "../../repositories/specifications-repository";

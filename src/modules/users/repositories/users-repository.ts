@@ -9,8 +9,16 @@ export type CreateUserDTO = {
     admin: boolean;
 };
 
+export type UpdateUserDTO = {
+    name: string;
+    email: string;
+    driverLicense?: string;
+};
+
 export interface UsersRepository {
     create(data: CreateUserDTO): Promise<User>;
+
+    update(userId: string, payload: UpdateUserDTO): Promise<User>;
 
     findByEmail(email: string): Promise<User>;
     findAll(): Promise<User[]>;
