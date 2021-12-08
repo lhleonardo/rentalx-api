@@ -2,7 +2,8 @@ import {
     Column,
     CreateDateColumn,
     Entity,
-    ManyToOne,
+    JoinColumn,
+    OneToOne,
     PrimaryColumn,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
@@ -23,8 +24,9 @@ export class PasswordRecoveryToken {
     @Column({ type: "boolean", default: false })
     used: boolean;
 
-    // @ManyToOne(() => User)
-    // user: User;
+    @OneToOne(() => User)
+    @JoinColumn({ name: "user_id", referencedColumnName: "id" })
+    user: User;
 
     @Column({ name: "user_id", type: "uuid" })
     userId: string;

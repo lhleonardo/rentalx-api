@@ -36,6 +36,17 @@ export class TypeormPasswordRecoveryTokenRepository
     public async invalidateTokens({
         userId,
     }: InvalidateUserTokensDTO): Promise<void> {
-        await this.externalRepo.update({ userId }, { active: false });
+        await this.externalRepo.update(
+            { userId, active: true },
+            { active: false }
+        );
+    }
+
+    public async markTokenAsUsed(tokenId: string): Promise<void> {
+        await this.externalRepo.update(tokenId, { used: true, active: false });
+    }
+
+    public findToken(tokenId: string): Promise<PasswordRecoveryToken> {
+        return this.externalRepo.findOne(tokenId);
     }
 }

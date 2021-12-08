@@ -1,6 +1,6 @@
 import { celebrate, Joi, Segments } from "celebrate";
 
-const createForgotPasswordValidator = celebrate(
+const forgotPasswordValidator = celebrate(
     {
         [Segments.BODY]: Joi.object().keys({
             email: Joi.string().email().required(),
@@ -9,4 +9,4 @@ const createForgotPasswordValidator = celebrate(
     { abortEarly: false }
 );
 
-export { createForgotPasswordValidator };
+export { forgotPasswordValidator };
