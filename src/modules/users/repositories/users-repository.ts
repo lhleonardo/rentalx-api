@@ -23,5 +23,6 @@ export interface UsersRepository {
     updatePassword(userId: string, password: string): Promise<void>;
 
     findByEmail(email: string): Promise<User>;
+    findById(id: string): Promise<User>;
     findAll(): Promise<User[]>;
 }

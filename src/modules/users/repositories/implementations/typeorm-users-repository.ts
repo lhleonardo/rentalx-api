@@ -39,6 +39,10 @@ export class TypeormUsersRepository implements UsersRepository {
         return userExists;
     }
 
+    public findById(id: string): Promise<User> {
+        return this.externalRepo.findOne(id);
+    }
+
     public findAll(): Promise<User[]> {
         return this.externalRepo.find({});
     }
