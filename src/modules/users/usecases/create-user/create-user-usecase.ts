@@ -1,6 +1,6 @@
 import { HasherProvider } from "../../../../core/providers/criptography/hasher";
 import { BasicUsecase } from "../../../../core/usecases/basic-service";
-import { ConfirmPasswordError } from "../../errors/confirm-password-error";
+import { ConfirmPasswordError } from "../../../../shared/errors/confirm-password-error";
 import { DuplicateEmailError } from "../../errors/duplicate-email-error";
 import { User } from "../../models/user";
 import { UsersRepository } from "../../repositories/users-repository";

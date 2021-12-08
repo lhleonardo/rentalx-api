@@ -20,6 +20,8 @@ export interface UsersRepository {
 
     update(userId: string, payload: UpdateUserDTO): Promise<User>;
 
+    updatePassword(userId: string, password: string): Promise<void>;
+
     findByEmail(email: string): Promise<User>;
     findAll(): Promise<User[]>;
 }

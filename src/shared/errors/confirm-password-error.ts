@@ -1,5 +1,5 @@
-import { BAD_REQUEST } from "../../../core/constants/http-status-code";
-import { AppError } from "../../../shared/errors/app-error";
+import { BAD_REQUEST } from "../../core/constants/http-status-code";
+import { AppError } from "./app-error";
 
 export class ConfirmPasswordError extends AppError {
     constructor() {
