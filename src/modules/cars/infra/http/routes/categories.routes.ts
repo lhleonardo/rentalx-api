@@ -1,6 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
 
+import ensureAuthenticated from "../../../../auth/middlewares/ensure-authenticated";
 import {
     createCategoryValidation,
     makeCreateCategoryController,
@@ -13,6 +14,8 @@ const categoriesRoutes = Router();
 const uploadConfiguration = multer({
     dest: "./tmp",
 });
+
+categoriesRoutes.use(ensureAuthenticated);
 
 categoriesRoutes.post("/categories", createCategoryValidation, (req, res) =>
     makeCreateCategoryController().handle(req, res)
