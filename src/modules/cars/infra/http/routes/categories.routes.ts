@@ -15,8 +15,6 @@ const uploadConfiguration = multer({
     dest: "./tmp",
 });
 
-categoriesRoutes.use(ensureAuthenticated);
-
 categoriesRoutes.post("/categories", createCategoryValidation, (req, res) =>
     makeCreateCategoryController().handle(req, res)
 );

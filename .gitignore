@@ -125,3 +125,6 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node
 
 tmp/
+!tmp/.gitkeep
+tmp/uploads/
+!tmp/uploads/.gitkeep

@@ -13,14 +13,15 @@ export type UpdateUserDTO = {
     name: string;
     email: string;
     driverLicense?: string;
+    avatar?: string;
 };
 
 export interface UsersRepository {
     create(data: CreateUserDTO): Promise<User>;
 
     update(userId: string, payload: UpdateUserDTO): Promise<User>;
-
     updatePassword(userId: string, password: string): Promise<void>;
+    updateAvatar(userId: string, avatar: string): Promise<void>;
 
     findByEmail(email: string): Promise<User>;
     findById(id: string): Promise<User>;

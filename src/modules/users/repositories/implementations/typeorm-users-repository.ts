@@ -34,6 +34,10 @@ export class TypeormUsersRepository implements UsersRepository {
         await this.externalRepo.update(userId, { password });
     }
 
+    public async updateAvatar(userId: string, avatar: string): Promise<void> {
+        await this.externalRepo.update(userId, { avatar });
+    }
+
     public findByEmail(email: string): Promise<User> {
         const userExists = this.externalRepo.findOne({ email });
         return userExists;
