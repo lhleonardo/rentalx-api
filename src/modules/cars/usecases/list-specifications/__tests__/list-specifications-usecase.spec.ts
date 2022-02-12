@@ -37,8 +37,10 @@ describe("List Specifications UseCase", () => {
 
     it("should be able to return the correct count of items", async () => {
         // adiciona uma quantidade arbitrária de elementos
+        const itemsCount = 10;
         const operations = [];
-        for (let i = 1; i <= 10; i += 1) {
+
+        for (let i = 1; i <= itemsCount; i += 1) {
             const promise = repository.create({
                 name: `specification-${i}`,
                 description: "some-description",
@@ -46,12 +48,13 @@ describe("List Specifications UseCase", () => {
 
             operations.push(promise);
         }
-        Promise.all(operations);
+
+        await Promise.all(operations);
 
         const response = await usecase.execute();
 
         expect(response).toBeTruthy();
         expect(response).toBeInstanceOf(Array);
-        expect(response.length).toBe(10);
+        expect(response.length).toBe(itemsCount);
     });
 });
