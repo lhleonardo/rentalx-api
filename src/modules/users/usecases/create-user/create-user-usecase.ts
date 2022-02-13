@@ -41,8 +41,6 @@ export class CreateUserUsecase implements BasicUsecase<Request, User> {
             throw new DuplicateEmailError(email);
         }
 
-        console.log(password);
-        console.log(confirmPassword);
         if (password !== confirmPassword) {
             throw new ConfirmPasswordError();
         }

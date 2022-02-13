@@ -41,9 +41,6 @@ export class ResetPasswordUsecase implements BasicUsecase<Request, void> {
         }
 
         const tokenInfo = await this.tokenRepository.findToken(token);
-        console.log(tokenInfo.expiresIn);
-        console.log(new Date());
-        console.log(isAfter(tokenInfo.expiresIn, new Date()));
 
         // token inativo ou já expirado
         if (!tokenInfo.active || isAfter(new Date(), tokenInfo.expiresIn)) {

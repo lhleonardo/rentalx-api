@@ -30,7 +30,6 @@ export default async function ensureAuthenticated(
 
     try {
         const decrypted = await decrypter.decrypt<DecodedPayload>(token);
-        console.log(decrypted);
         userId = decrypted;
     } catch {
         throw new InvalidTokenError();
