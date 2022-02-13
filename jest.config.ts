@@ -114,12 +114,10 @@ export default {
     // restoreMocks: false,
 
     // The root directory that Jest should scan for tests and modules within
-    // rootDir: undefined,
+    rootDir: "./src/",
 
     // A list of paths to directories that Jest should use to search for files in
-    // roots: [
-    //   "<rootDir>"
-    // ],
+    roots: ["<rootDir>"],
 
     // Allows you to use a custom runner instead of Jest's default test runner
     // runner: "jest-runner",
@@ -149,13 +147,11 @@ export default {
     testMatch: [
         "**/__tests__/**/*.[jt]s?(x)",
         "**/?(*.)+(spec|test).[tj]s?(x)",
-        "**/__tests__/**/?(*.)+(spec|test).[tj]s?(x)"
+        "**/__tests__/**/?(*.)+(spec|test).[tj]s?(x)",
     ],
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-    // testPathIgnorePatterns: [
-    //   "/node_modules/"
-    // ],
+    testPathIgnorePatterns: ["/node_modules/", "/.docker/database_data/"],
 
     // The regexp pattern or array of patterns that Jest uses to detect test files
     // testRegex: [],
